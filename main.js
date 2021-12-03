@@ -1,52 +1,40 @@
-//===================MENU SHOW Y HIDDEN================
-const navMenu = document.getElementById('nav-menu');
-      navToggle = document.getElementById('nav-toggle');
-      navClose = document.getElementById('nav-close');
+//===================MENU SHOW Y HIDDEN===============
 
-//=================MENU SHOW==========================
-if(navToggle){
-    navToggle.addEventListener('click', () =>{
-        navMenu.classList.add('show-menu')
+if('#nav-toggle'){
+    $('#nav-toggle').click(function () {
+        $('#nav-menu').addClass('show-menu')
     })  
 };
 
-// ================MENU HIDDEN============================
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        navMenu.classList.remove('show-menu')
+
+if('#nav-close'){
+    $('#nav-close').click (function() {
+        $('#nav-menu').removeClass('show-menu')
     })
 };
 
 // ================REMOVE MENU MOBILE=====================
-const navLink = document.querySelectorAll('.nav__link');
 
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
-    navMenu.classList.remove('show-menu')
-};
-
-navLink.forEach(n => n.addEventListener('click', linkAction));
+$('.nav__link').click (function linkAction(){
+    $('#nav-menu').removeClass('show-menu')
+});
 
 // =========== Dark/Light theme====================
-
-const themeButton = document.getElementById('theme-button');
-const darkTheme = 'dark-theme';
-const iconTheme = 'uil-sun';
 
 const selectedTheme = localStorage.getItem('selected-theme');
 const selectedIcon = localStorage.getItem('selected-icon');
 
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uli-moon' : 'uil-sun';
+const getCurrentTheme = () => $('body').hasClass('dark-theme') ? 'dark' : 'light';
+const getCurrentIcon = () => $('#theme-button').hasClass('uil-sun') ? 'uli-moon' : 'uil-sun';
 
 if(selectedTheme){
-    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-    themeButton.classList[selectedTheme === 'uli-moon' ? 'add' : 'remove'](iconTheme)
+    $('body').hasClass(selectedTheme === 'dark' ? $('body').addClass('dark-theme') : $('body').removeClass('dark-theme'))
+    $('#theme-button').hasClass(selectedTheme === 'uli-moon' ? $('#theme-button').addClass : $('#theme-button').removeClass('uil-sun'))
 };
 
-themeButton.addEventListener('click', () => {
-    document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
+$('#theme-button').click(function () {
+    $('body').toggleClass('dark-theme')
+    $('#theme-button').toggleClass('uil-sun')
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 });
@@ -54,26 +42,20 @@ themeButton.addEventListener('click', () => {
 
 // ===============CONTACTS SHOW Y HIDDEN=============
 
+$('#nav-contacts').click(function() {
+    contactsToggle ('#phone-data');
+    contactsToggle ('#email-data');
+});
 
-const phoneButton = document.getElementById('phone-btn');
-      emailButton = document.getElementById('email-btn');
-      phoneData = document.getElementById('phone-data');
-      emailData = document.getElementById('email-data');
-
-    phoneButton.addEventListener('click', () =>{
-        if(phoneData.style.display === 'none') {  
-            phoneData.style.display = 'block';
-        } else {
-            phoneData.style.display = 'none';
-        }
-        });
-    emailButton.addEventListener('click', () =>{
-        if(emailData.style.display === 'none') {  
-            emailData.style.display = 'block';
-        } else {
-            emailData.style.display = 'none';
-        }
-        });
+$('#phone-btn').click(function() {
+    contactsToggle ('#phone-data');
+});
   
+$('#email-btn').click(function() {
+    contactsToggle ('#email-data');
+});
 
+function contactsToggle (data){
+    $(data).fadeToggle( "fast", "linear" );
+} 
 
