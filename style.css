@@ -49,7 +49,7 @@
   --z-modal: 1000;
 }
 
-/*============================FONT SIZE FOR LARGE DEVISES=====================*/
+/*============================FONT SIZE FOR LARGE DEVICES=====================*/
 @media screen and (min-width: 986px) {
   :root {
     --big-font-size: 3rem;
@@ -454,6 +454,10 @@ img {
     width: 180px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .contacts__data {
+    font-size: var(--smaller-font-size);
   }
 
   .section__title {
