@@ -137,7 +137,7 @@ img {
 }
 
 /*===============================REUSABLE CSS CLASSES==================================*/
-.section {
+section {
   padding: 2rem 0 4rem;
 }
 
@@ -342,8 +342,18 @@ img {
   list-style-type: circle;
 }
 
-.skills__list-item {
+.skills__list li {
   margin-bottom: var(--mb-1-5);
+  text-align: justify;
+}
+
+.skills__sub-list {
+  margin-left: var(--mb-2);
+  margin-top: var(--mb-0-5);
+}
+
+.skills__sub-list li {
+  margin-bottom: var(--mb-0-25);
   text-align: justify;
 }
 
@@ -374,11 +384,11 @@ img {
   grid-row: 2/4;
 }
 
-.experience__description-list {
+.experience__desc-list {
   list-style-type: circle;
 }
 
-.experience__list-item {
+.experience__desc-list li {
   margin-bottom: var(--mb-1-5);
   text-align: justify;
 }
