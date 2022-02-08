@@ -320,7 +320,7 @@ section {
 /* ===================SKILLS========================== */
 .skills__info {
   grid-template-columns: 1fr 1fr;
-  column-gap: var(--mb-5);
+  column-gap: 8rem;
   text-align: center;
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
@@ -344,16 +344,6 @@ section {
 
 .skills__list li {
   margin-bottom: var(--mb-1-5);
-  text-align: justify;
-}
-
-.skills__sub-list {
-  margin-left: var(--mb-2);
-  margin-top: var(--mb-0-5);
-}
-
-.skills__sub-list li {
-  margin-bottom: var(--mb-0-25);
   text-align: justify;
 }
 
